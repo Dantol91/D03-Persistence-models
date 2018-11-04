@@ -131,7 +131,6 @@ public class Actor extends DomainEntity {
 	}
 
 	@NotEmpty
-	@OneToMany
 	public Collection<Box> getBoxes() {
 		return this.boxes;
 	}
@@ -151,7 +150,6 @@ public class Actor extends DomainEntity {
 	}
 
 	@NotNull
-	@OneToMany
 	public Collection<Message> getMessages() {
 		return this.messages;
 	}
