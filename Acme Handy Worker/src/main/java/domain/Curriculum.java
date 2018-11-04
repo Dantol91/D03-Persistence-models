@@ -3,10 +3,16 @@ package domain;
 
 import java.util.Collection;
 
+import javax.persistence.Access;
+import javax.persistence.AccessType;
+import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
+@Entity
+@Access(AccessType.PROPERTY)
 public class Curriculum extends DomainEntity {
 
 	// Constructors
@@ -53,6 +59,7 @@ public class Curriculum extends DomainEntity {
 
 	@NotNull
 	@Valid
+	@OneToOne(optional = true)
 	public PersonalRecord getPersonalRecord() {
 		return this.personalRecord;
 	}

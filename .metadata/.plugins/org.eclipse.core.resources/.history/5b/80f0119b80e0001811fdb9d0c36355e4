@@ -1,0 +1,39 @@
+
+package domain;
+
+import java.util.Collection;
+
+import javax.validation.Valid;
+
+import javax.persistence.Access;
+import javax.persistence.AccessType;
+import javax.persistence.Entity;
+
+@Entity
+@Access(AccessType.PROPERTY)
+public class Endorse extends DomainEntity {
+
+	// Constructor
+
+	public Endorse() {
+		super();
+	}
+
+
+	// Attributes
+
+	// Relationships
+
+	private Collection<Endorsement>	endorsements;
+
+
+	@Valid
+	public Collection<Endorsement> getEndorsements() {
+		return this.endorsements;
+	}
+
+	public void setEndorsements(final Collection<Endorsement> endorsements) {
+		this.endorsements = endorsements;
+	}
+
+}
