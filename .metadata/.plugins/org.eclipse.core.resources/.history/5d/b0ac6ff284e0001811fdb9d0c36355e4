@@ -69,7 +69,6 @@ public class HandyWorker extends Actor {
 	}
 
 	@Valid
-	@OneToOne(optional = true)
 	public Curriculum getCurriculum() {
 		return this.curriculum;
 	}
@@ -80,7 +79,7 @@ public class HandyWorker extends Actor {
 
 	@NotNull
 	@Valid
-	@OneToOne(optional = false)
+	@OneToOne(optional = true)
 	public Finder getFinder() {
 		return this.finder;
 	}

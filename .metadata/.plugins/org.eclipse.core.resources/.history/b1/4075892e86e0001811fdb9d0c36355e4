@@ -7,7 +7,6 @@ import java.util.Date;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
 import javax.validation.Valid;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -157,7 +156,6 @@ public class FixUpTask extends DomainEntity {
 	}
 
 	@NotNull
-	@ManyToMany
 	public Collection<Category> getCategories() {
 		return this.categories;
 	}

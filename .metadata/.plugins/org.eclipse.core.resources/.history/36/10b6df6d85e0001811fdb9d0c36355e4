@@ -69,7 +69,6 @@ public class HandyWorker extends Actor {
 	}
 
 	@Valid
-	@OneToOne(optional = true)
 	public Curriculum getCurriculum() {
 		return this.curriculum;
 	}

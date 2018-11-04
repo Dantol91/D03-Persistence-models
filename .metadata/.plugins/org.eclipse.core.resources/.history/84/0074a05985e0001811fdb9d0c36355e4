@@ -49,7 +49,6 @@ public class Curriculum extends DomainEntity {
 
 	@NotNull
 	@Valid
-	@OneToOne(optional = false)
 	public HandyWorker getHandyWorker() {
 		return this.handyWorker;
 	}
