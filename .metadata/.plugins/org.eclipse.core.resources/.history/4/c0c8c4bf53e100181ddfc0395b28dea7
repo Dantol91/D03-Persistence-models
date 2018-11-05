@@ -133,7 +133,6 @@ public class FixUpTask extends DomainEntity {
 
 	@NotNull
 	@Valid
-	@ManyToOne(optional = false)
 	public Customer getCustomer() {
 		return this.customer;
 	}
@@ -174,7 +173,6 @@ public class FixUpTask extends DomainEntity {
 	}
 
 	@NotNull
-	@OneToMany(mappedBy = "FixUpTask")
 	public Collection<Complaint> getComplaints() {
 		return this.complaints;
 	}

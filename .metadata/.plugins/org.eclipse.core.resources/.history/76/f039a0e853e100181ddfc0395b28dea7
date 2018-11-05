@@ -133,7 +133,6 @@ public class FixUpTask extends DomainEntity {
 
 	@NotNull
 	@Valid
-	@ManyToOne(optional = false)
 	public Customer getCustomer() {
 		return this.customer;
 	}
