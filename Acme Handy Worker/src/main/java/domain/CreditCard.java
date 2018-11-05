@@ -1,12 +1,9 @@
 
 package domain;
 
-import java.util.Collection;
-
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
-import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.CreditCardNumber;
 import org.hibernate.validator.constraints.NotBlank;
@@ -88,19 +85,20 @@ public class CreditCard extends DomainEntity {
 		this.CVV = CVV;
 	}
 
-
 	// Relationships
 
-	private Collection<Application>	applications;
-
-
-	@NotNull
-	public Collection<Application> getApplications() {
-		return this.applications;
-	}
-
-	public void setApplications(final Collection<Application> applications) {
-		this.applications = applications;
-	}
+	/*
+	 * private Collection<Application> applications;
+	 * 
+	 * 
+	 * @NotNull
+	 * public Collection<Application> getApplications() {
+	 * return this.applications;
+	 * }
+	 * 
+	 * public void setApplications(final Collection<Application> applications) {
+	 * this.applications = applications;
+	 * }
+	 */
 
 }

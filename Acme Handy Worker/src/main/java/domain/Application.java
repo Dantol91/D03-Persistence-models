@@ -6,6 +6,7 @@ import java.util.Date;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -89,12 +90,18 @@ public class Application extends DomainEntity {
 
 
 	@Valid
+	@ManyToOne(optional = true)
 	public CreditCard getCreditcard() {
 		return this.creditcard;
 	}
 
+	public void setCreditcard(final CreditCard creditcard) {
+		this.creditcard = creditcard;
+	}
+
 	@NotNull
 	@Valid
+	@ManyToOne(optional = false)
 	public HandyWorker getHandyWorker() {
 		return this.handyWorker;
 	}
@@ -105,16 +112,13 @@ public class Application extends DomainEntity {
 
 	@NotNull
 	@Valid
+	@ManyToOne(optional = false)
 	public FixUpTask getFixUpTask() {
 		return this.fixUpTask;
 	}
 
 	public void setFixUpTask(final FixUpTask fixUpTask) {
 		this.fixUpTask = fixUpTask;
-	}
-
-	public void setCreditcard(final CreditCard creditcard) {
-		this.creditcard = creditcard;
 	}
 
 }

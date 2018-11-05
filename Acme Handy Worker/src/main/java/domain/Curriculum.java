@@ -6,6 +6,7 @@ import java.util.Collection;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -70,6 +71,7 @@ public class Curriculum extends DomainEntity {
 	}
 
 	@NotNull
+	@OneToMany
 	public Collection<EducationRecord> getEducationRecords() {
 		return this.educationRecords;
 	}
@@ -79,6 +81,7 @@ public class Curriculum extends DomainEntity {
 	}
 
 	@NotNull
+	@OneToMany
 	public Collection<ProfessionalRecord> getProfessionalRecords() {
 		return this.professionalRecords;
 	}
@@ -88,6 +91,7 @@ public class Curriculum extends DomainEntity {
 	}
 
 	@NotNull
+	@OneToMany
 	public Collection<MiscellaneousRecord> getMiscellaneousRecords() {
 		return this.miscellaneousRecords;
 	}
@@ -97,6 +101,7 @@ public class Curriculum extends DomainEntity {
 	}
 
 	@NotNull
+	@OneToMany
 	public Collection<EndorserRecord> getEndorserRecords() {
 		return this.endorserRecords;
 	}

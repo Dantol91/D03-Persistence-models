@@ -78,12 +78,12 @@ public class Tutorial extends DomainEntity {
 
 	// Relationships
 
-	@Valid
 	private Collection<Sponsorship>	sponsorships;
 	private Collection<Section>		sections;
 
 
-	@Valid
+	@NotNull
+	@OneToMany
 	public Collection<Sponsorship> getSponsorships() {
 		return this.sponsorships;
 	}
