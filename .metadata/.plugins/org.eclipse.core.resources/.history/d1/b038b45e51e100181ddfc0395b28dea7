@@ -92,7 +92,7 @@ public class HandyWorker extends Actor {
 	}
 
 	@NotNull
-	@OneToMany(mappedBy = "HandyWorker")
+	@OneToMany(mappedBy="HandyWorker")
 	public Collection<Application> getApplications() {
 		return this.applications;
 	}
