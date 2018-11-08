@@ -511,6 +511,7 @@
 		<property name="actor" ref="auditor1" />
 	</bean>
 
+
 	<bean id="folder3.1" class="domain.Folder">
 		<property name="name" value="in box" />
 		<property name="messages">
@@ -1000,7 +1001,6 @@
 		<property name="actor" ref="manager1" />
 		<property name="parentFolder" ref="folder11.6"></property>
 	</bean>
-	
 	
 	
 </beans>
