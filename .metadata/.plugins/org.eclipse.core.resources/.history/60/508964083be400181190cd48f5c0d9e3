@@ -1688,38 +1688,5 @@
 		<property name="recipient" ref="sponsor2" />
 	</bean>
 	
-		<!-- Notes -->
-
-	<bean id="note1" class="domain.Note">
-		<property name="creationMoment" value="01/10/2016" />
-		<property name="remark" value="Nota de la nota 1" />
-		<property name="trip" ref="trip1" />
-		<property name="auditor" ref="auditor1" />
-		<property name="reply" ref="reply1" />
-	</bean>
-
-	<bean id="note2" class="domain.Note">
-		<property name="creationMoment" value="17/04/2015" />
-		<property name="remark" value="Nota de la nota 2" />
-		<property name="trip" ref="trip2" />
-		<property name="auditor" ref="auditor2" />
-		<property name="reply" ref="reply2" />
-	</bean>
-
-	<bean id="note3" class="domain.Note">
-		<property name="creationMoment" value="17/04/2015" />
-		<property name="remark" value="Nota de la nota 3" />
-		<property name="trip" ref="trip3" />
-		<property name="auditor" ref="auditor2" />
-		<property name="reply" ref="reply3" />
-	</bean>
-		<bean id="note4" class="domain.Note">
-		<property name="creationMoment" value="17/04/2015" />
-		<property name="remark" value="Nota de la nota 3" />
-		<property name="trip" ref="trip3" />
-		<property name="auditor" ref="auditor2" />
-		<property name="reply" ref="reply4" />
-	</bean>
-	
 	
 </beans>
