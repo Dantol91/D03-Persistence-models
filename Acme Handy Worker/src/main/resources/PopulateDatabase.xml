@@ -18,8 +18,10 @@
 	
 	<!-- User accounts -->
 
+	<!-- User accounts -->
+
 	<bean id="userAccount1" class="security.UserAccount">
-		<property name="username" value="admin" />
+		<property name="username" value="admin1" />
 		<property name="password" value="21232f297a57a5a743894a0e4a801fc3" />
 		<property name="authorities">
 			<list>
@@ -28,10 +30,11 @@
 				</bean>
 			</list>
 		</property>
+		<property name="banned" value="false"/>
 	</bean>
 
 	<bean id="userAccount2" class="security.UserAccount">
-		<property name="username" value="customer" />
+		<property name="username" value="customer1" />
 		<property name="password" value="91ec1f9324753048c0096d036a694f86" />
 		<property name="authorities">
 			<list>
@@ -40,22 +43,46 @@
 				</bean>
 			</list>
 		</property>
+		<property name="banned" value="false"/>
 	</bean>
 
 	<bean id="userAccount3" class="security.UserAccount">
-		<property name="username" value="super" />
+		<property name="username" value="referee1" />
 		<property name="password" value="1b3231655cebb7a1f783eddf27d254ca" />
 		<property name="authorities">
 			<list>
 				<bean class="security.Authority">
-					<property name="authority" value="ADMIN" />
-				</bean>
-				<bean class="security.Authority">
-					<property name="authority" value="CUSTOMER" />
+					<property name="authority" value="REFEREE" />
 				</bean>
 			</list>
 		</property>
-	</bean>	
+		<property name="banned" value="false"/>
+	</bean>
+	
+	<bean id="userAccount4" class="security.UserAccount">
+		<property name="username" value="handyworker1" />
+		<property name="password" value="1b3231655cebb7a1f783eddf27d254ca" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="HANDYWORKER" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="userAccount5" class="security.UserAccount">
+		<property name="username" value="sponsor1" />
+		<property name="password" value="1b3231655cebb7a1f783eddf27d254ca" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="SPONSOR" />
+				</bean>
+			</list>
+		</property>
+		<property name="banned" value="false"/>
+	</bean>
 	
 	<!-- Administrator -->
 
@@ -1720,6 +1747,349 @@
 		<property name="auditor" ref="auditor2" />
 		<property name="reply" ref="reply4" />
 	</bean>
+	
+		<!-- Customer -->
+ 	
+	<bean id="customer1" class="domain.Customer">
+		<property name="name" value="Antonio"/>
+		<property name="middleName" value=""/>
+		<property name="surname" value="García" />
+		<property name="photoLink" value="http://www.instagram.es"/>
+		<property name="email" value="antax91@gmail.com"/>
+		<property name="phone" value="634074785" />
+		<property name="address" value="Calle Ochoa 6"/>
+		<property name="isSuspicious" value="false"/>
+		<property name="socialProfiles">
+			<list>
+				<ref bean="socialProfile2"/>
+			</list>
+		</property>
+		<property name="boxes">
+			<list>
+				<ref bean="box5"/>
+				<ref bean="box6"/>
+				<ref bean="box7"/>
+				<ref bean="box8"/>
+			</list>
+		</property>
+		<property name="userAccount" ref="userAccount2"/>
+		<property name="score" value="0.25"/>
+		<property name="fixUpTask">
+			<list>
+				<ref bean="fixUpTask1" />
+				<ref bean="fixUpTask2" />
+				<ref bean="fixUpTask3" />
+			</list>
+		</property>
+		<property name="endorsementsSents">
+			<list>
+				<null></null>
+			</list>
+		</property>
+		<property name="endorsementsReceiveds">
+			<list>
+				<null></null>
+			</list>
+		</property>
+	</bean>
+ 
+ 	<bean id="customer2" class="domain.Customer">
+		<property name="name" value="Maria" />
+		<property name="middleName" value="Isabel" />
+		<property name="surname" value="Diaz Gomez" />
+		<property name="photoLink" value="http://www.link2.com" />
+		<property name="email" value="customer2@gmail.com" />
+		<property name="phone" value="632014700" />
+		<property name="address" value="Address 2" />
+		<property name="isSuspicious" value="false" />
+		<property name="socialProfiles">
+			<list>
+				<ref bean="socialProfile6" />
+			</list>
+		</property>
+		<property name="boxes">
+			<list>
+				<ref bean="box21" />
+				<ref bean="box22" />
+				<ref bean="box23" />
+				<ref bean="box24" />
+			</list>
+		</property>
+		<property name="userAccount" ref="userAccount6" />
+		<!-- <property name="score" value="" /> -->
+		<property name="fixUpTask">
+			<list>
+				<ref bean="fixUpTask4" />
+				<ref bean="fixUpTask5" />
+			</list>
+		</property>
+		<property name="endorsementsSents">
+				<list>
+					<null></null>
+				</list>
+		</property>
+		<property name="endorsementsReceiveds">
+			<list>
+				<null></null>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="customer3" class="domain.Customer">
+		<property name="name" value="Ana" />
+		<property name="middleName" value="Marcela" />
+		<property name="surname" value="Toledo Hernandez" />
+		<property name="photoLink" value="http://www.link3.com" />
+		<property name="email" value="customer3@gmail.com" />
+		<property name="phone" value="622014501" />
+		<property name="address" value="Address 3" />
+		<property name="isSuspicious" value="false" />
+		<property name="socialProfiles">
+			<list>
+				<null> </null>
+			</list>
+		</property>
+		<property name="boxes">
+			<list>
+				<ref bean="box25" />
+				<ref bean="box26" />
+				<ref bean="box27" />
+				<ref bean="box28" />
+			</list>
+		</property>
+		<property name="userAccount" ref="userAccount7" />
+		<!-- <property name="score" value="" /> -->
+		<property name="fixUpTask">
+			<list>
+				<null></null>
+			</list>
+		</property>
+		<property name="endorsementsSents">
+				<list>
+					<null></null>
+				</list>
+		</property>
+		<property name="endorsementsReceiveds">
+			<list>
+				<null></null>
+			</list>
+		</property>
+	</bean>
+   
+   <bean id="customer4" class="domain.Customer">
+		<property name="name" value="Jose" />
+		<property name="middleName" value="Maria" />
+		<property name="surname" value="Gutierrez Saez" />
+		<property name="photoLink" value="http://www.link4.com" />
+		<property name="email" value="customer4@gmail.com" />
+		<property name="phone" value="634014701" />
+		<property name="address" value="Address 4" />
+		<property name="isSuspicious" value="false" />
+		<property name="socialProfiles">
+			<list>
+				<ref bean="socialProfile7" />
+				<ref bean="socialProfile8" />
+			</list>
+		</property>
+		<property name="boxes">
+			<list>
+				<ref bean="box29" />
+				<ref bean="box30" />
+				<ref bean="box31" />
+				<ref bean="box32" />
+			</list>
+		</property>
+		<property name="userAccount" ref="userAccount8" />
+		<!-- <property name="score" value="" /> -->
+		<property name="fixUpTask">
+			<list>
+				<ref bean="fixUpTask6" />
+			</list>
+		</property>
+		<property name="endorsementsSents">
+				<list>
+					<null></null>
+				</list>
+		</property>
+		<property name="endorsementsReceiveds">
+			<list>
+				<null></null>
+			</list>
+		</property>
+	</bean>
+   
+   <bean id="customer5" class="domain.Customer">
+		<property name="name" value="Jose" />
+		<property name="middleName" value="Antonio" />
+		<property name="surname" value="Nole Anguita" />
+		<property name="photoLink" value="http://www.link5.com" />
+		<property name="email" value="customer5@gmail.com" />
+		<property name="phone" value="635014701" />
+		<property name="address" value="Address 5" />
+		<property name="isSuspicious" value="false" />
+		<property name="socialProfiles">
+			<list>
+				<null> </null>
+			</list>
+		</property>
+		<property name="boxes">
+			<list>
+				<ref bean="box33" />
+				<ref bean="box34" />
+				<ref bean="box35" />
+				<ref bean="box36" />
+			</list>
+		</property>
+		<property name="userAccount" ref="userAccount9" />
+		<!-- <property name="score" value="" /> -->
+		<property name="fixUpTask">
+			<list>
+				<ref bean="fixUpTask8" />
+			</list>
+		</property>
+		<property name="endorsementsSents">
+				<list>
+					<null></null>
+				</list>
+		</property>
+		<property name="endorsementsReceiveds">
+			<list>
+				<null></null>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- Customisations -->
+ 	
+ 	<bean id="customisation1" class="domain.Customisation">
+		<property name="systemName" value="system name 1"/>
+		<property name="banner" value="http://www.google.es"/>
+		<property name="welcomeMessageEn" value="welcome message 1" />
+		<property name="welcomeMessageSp" value="welcome message sp 1"/>
+		<property name="VATTax" value="0.21"/>
+		<property name="countryCode" value="+34" />
+		<property name="creditCardMakes">
+			<list>
+				<value>VISA</value>
+			</list>
+		</property>
+		<property name="finderCacheNumber" value="20"/>
+		<property name="finderResults" value="50" />
+		<property name="spamWords">
+			<list>
+				<value>Viagra</value>
+				<value>Sex</value>
+			</list>
+		</property>
+		<property name="positiveWords">
+			<list>
+				<value>Good</value>
+				<value>Fantastic</value>
+			</list>
+		</property>
+		<property name="negativeWords">
+			<list>
+				<value>Not</value>
+				<value>Bad</value>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="customisation2" class="domain.Customisation">
+		<property name="systemName" value="system name 2"/>
+		<property name="banner" value="http://www.google.es"/>
+		<property name="welcomeMessageEn" value="welcome message 2" />
+		<property name="VATTax" value="0.21"/>
+		<property name="countryCode" value="+1" />
+		<property name="creditCardMakes">
+			<list>
+				<value>MASTER</value>
+			</list>
+		</property>
+		<property name="finderCacheNumber" value="15"/>
+		<property name="finderResults" value="75" />
+		<property name="spamWords">
+			<list>
+				<null></null>
+			</list>
+		</property>
+		<property name="positiveWords">
+			<list>
+				<value>Excellent</value>
+				<value>Great</value>
+			</list>
+		</property>
+		<property name="negativeWords">
+			<list>
+				<null></null>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="customisation3" class="domain.Customisation">
+		<property name="systemName" value="system name 3"/>
+		<property name="banner" value="http://www.google.es"/>
+		<property name="welcomeMessageEn" value="welcome message 3" />
+		<property name="VATTax" value="0.21"/>
+		<property name="countryCode" value="+58" />
+		<property name="creditCardMakes">
+			<list>
+				<value>VISA</value>
+			</list>
+		</property>
+		<property name="finderCacheNumber" value="10"/>
+		<property name="finderResults" value="25" />
+		<property name="spamWords">
+			<list>
+				<null></null>
+			</list>
+		</property>
+		<property name="positiveWords">
+			<list>
+				<null></null>
+			</list>
+		</property>
+		<property name="negativeWords">
+			<list>
+				<value>Terrible</value>
+				<value>Average</value>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="customisation4" class="domain.Customisation">
+		<property name="systemName" value="system name 4"/>
+		<property name="banner" value="http://www.google.es"/>
+		<property name="welcomeMessageEn" value="welcome message 4" />
+		<property name="welcomeMessageSp" value="welcome message sp 4"/>
+		<property name="VATTax" value="0.21"/>
+		<property name="countryCode" value="+8" />
+		<property name="creditCardMakes">
+			<list>
+				<value>VISA</value>
+			</list>
+		</property>
+		<property name="finderCacheNumber" value="05"/>
+		<property name="finderResults" value="23" />
+		<property name="spamWords">
+			<list>
+				<value>Cialis</value>
+				<value>One Million</value>
+			</list>
+		</property>
+		<property name="positiveWords">
+			<list>
+				<null></null>
+			</list>
+		</property>
+		<property name="negativeWords">
+			<list>
+				<null></null>
+			</list>
+		</property>
+	</bean>
+	
+	
 	
 	
 </beans>
