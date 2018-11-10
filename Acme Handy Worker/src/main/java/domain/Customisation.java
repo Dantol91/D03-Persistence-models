@@ -10,7 +10,6 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 
 import org.hibernate.validator.constraints.NotBlank;
-import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Access(AccessType.PROPERTY)
@@ -72,22 +71,27 @@ public class Customisation extends DomainEntity {
 		this.countryCode = countryCode;
 	}
 
-	public Collection<String> getSpamWords() {
-		return this.spamWords;
-	}
+	/*
+	 * 
+	 * public Collection<String> getSpamWords() {
+	 * return this.spamWords;
+	 * }
+	 * 
+	 * public void setSpamWords(final Collection<String> spamWords) {
+	 * this.spamWords = spamWords;
+	 * }
+	 */
 
-	public void setSpamWords(final Collection<String> spamWords) {
-		this.spamWords = spamWords;
-	}
-
-	@NotEmpty
-	public Collection<String> getCreditCardMakes() {
-		return this.creditCardMakes;
-	}
-
-	public void setCreditCardMakes(final Collection<String> creditCardMakes) {
-		this.creditCardMakes = creditCardMakes;
-	}
+	/*
+	 * @NotEmpty
+	 * public Collection<String> getCreditCardMakes() {
+	 * return this.creditCardMakes;
+	 * }
+	 * 
+	 * public void setCreditCardMakes(final Collection<String> creditCardMakes) {
+	 * this.creditCardMakes = creditCardMakes;
+	 * }
+	 */
 
 	@Max(100)
 	public int getFinderReturn() {
@@ -108,23 +112,28 @@ public class Customisation extends DomainEntity {
 		this.finderCache = finderCache;
 	}
 
-	@NotEmpty
-	public Collection<String> getPositiveWords() {
-		return this.positiveWords;
-	}
+	/*
+	 * @NotEmpty
+	 * public Collection<String> getPositiveWords() {
+	 * return this.positiveWords;
+	 * }
+	 * 
+	 * public void setPositiveWords(final Collection<String> positiveWords) {
+	 * this.positiveWords = positiveWords;
+	 * }
+	 */
 
-	public void setPositiveWords(final Collection<String> positiveWords) {
-		this.positiveWords = positiveWords;
-	}
-
-	@NotEmpty
-	public Collection<String> getNegativeWords() {
-		return this.negativeWords;
-	}
-
-	public void setNegativeWords(final Collection<String> negativeWords) {
-		this.negativeWords = negativeWords;
-	}
+	/*
+	 * 
+	 * @NotEmpty
+	 * public Collection<String> getNegativeWords() {
+	 * return this.negativeWords;
+	 * }
+	 * 
+	 * public void setNegativeWords(final Collection<String> negativeWords) {
+	 * this.negativeWords = negativeWords;
+	 * }
+	 */
 
 	// Relationships
 

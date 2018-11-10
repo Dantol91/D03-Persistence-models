@@ -7,8 +7,6 @@ import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotBlank;
@@ -51,9 +49,10 @@ public class Box extends DomainEntity {
 	// Relationships
 
 	private Collection<Message>	messages;
-	private Collection<Box>		childBoxes;
-	private Box					parentBox;
 
+
+	//private Collection<Box>		childBoxes;
+	//private Box					parentBox;
 
 	@NotNull
 	@ManyToMany
@@ -65,24 +64,24 @@ public class Box extends DomainEntity {
 		this.messages = messages;
 	}
 
-	@NotNull
-	@ManyToOne(optional = true)
-	public Collection<Box> getChildBoxes() {
-		return this.childBoxes;
-	}
-
-	public void setChildBoxes(final Collection<Box> childBoxes) {
-		this.childBoxes = childBoxes;
-	}
-
-	@NotNull
-	@OneToMany
-	public Box getParentBoxes() {
-		return this.parentBox;
-	}
-
-	public void setParentBoxe(final Box parentBox) {
-		this.parentBox = parentBox;
-	}
+	/*
+	 * //@ManyToOne(optional = false)
+	 * public Collection<Box> getChildBoxes() {
+	 * return this.childBoxes;
+	 * }
+	 * 
+	 * public void setChildBoxes(final Collection<Box> childBoxes) {
+	 * this.childBoxes = childBoxes;
+	 * }
+	 * 
+	 * //OneToMany
+	 * public Box getParentBox() {
+	 * return this.parentBox;
+	 * }
+	 * 
+	 * public void setParentBox(final Box parentBox) {
+	 * this.parentBox = parentBox;
+	 * }
+	 */
 
 }

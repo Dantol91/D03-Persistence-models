@@ -121,26 +121,31 @@ public class FixUpTask extends DomainEntity {
 	private Collection<Complaint>	complaints;
 
 
-	@NotNull
-	@OneToMany(mappedBy = "FixUpTask")
-	public Collection<Application> getApplications() {
-		return this.applications;
-	}
+	/*
+	 * @NotNull
+	 * //@OneToMany(mappedBy = "FixUpTask")
+	 * public Collection<Application> getApplications() {
+	 * return this.applications;
+	 * }
+	 * 
+	 * public void setApplications(final Collection<Application> applications) {
+	 * this.applications = applications;
+	 * }
+	 */
 
-	public void setApplications(final Collection<Application> applications) {
-		this.applications = applications;
-	}
-
-	@NotNull
-	@Valid
-	@ManyToOne(optional = false)
-	public Customer getCustomer() {
-		return this.customer;
-	}
-
-	public void setCustomer(final Customer customer) {
-		this.customer = customer;
-	}
+	/*
+	 * @NotNull
+	 * 
+	 * @Valid
+	 * //@ManyToOne(optional = false)
+	 * public Customer getCustomer() {
+	 * return this.customer;
+	 * }
+	 * 
+	 * public void setCustomer(final Customer customer) {
+	 * this.customer = customer;
+	 * }
+	 */
 
 	@NotNull
 	@OneToMany(cascade = CascadeType.ALL)
@@ -173,14 +178,17 @@ public class FixUpTask extends DomainEntity {
 		this.categories = categories;
 	}
 
-	@NotNull
-	@OneToMany(mappedBy = "FixUpTask")
-	public Collection<Complaint> getComplaints() {
-		return this.complaints;
-	}
-
-	public void setComplaints(final Collection<Complaint> complaints) {
-		this.complaints = complaints;
-	}
+	/*
+	 * 
+	 * @NotNull
+	 * //@OneToMany(mappedBy = "FixUpTask")
+	 * public Collection<Complaint> getComplaints() {
+	 * return this.complaints;
+	 * }
+	 * 
+	 * public void setComplaints(final Collection<Complaint> complaints) {
+	 * this.complaints = complaints;
+	 * }
+	 */
 
 }

@@ -91,14 +91,14 @@ public class HandyWorker extends Actor {
 		this.finder = finder;
 	}
 
-	@NotNull
-	@OneToMany(mappedBy = "HandyWorker")
-	public Collection<Application> getApplications() {
-		return this.applications;
-	}
-
-	public void setApplications(final Collection<Application> applications) {
-		this.applications = applications;
-	}
-
+	/*
+	 * //@OneToMany(mappedBy = "HandyWorker")
+	 * public Collection<Application> getApplications() {
+	 * return this.applications;
+	 * }
+	 * 
+	 * public void setApplications(final Collection<Application> applications) {
+	 * this.applications = applications;
+	 * }
+	 */
 }
