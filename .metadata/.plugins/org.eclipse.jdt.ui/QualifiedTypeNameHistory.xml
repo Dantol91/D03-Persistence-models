@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="services.ReviewerService"/>
 <fullyQualifiedTypeName name="org.apache.commons.lang.builder.ReflectionToStringBuilder"/>
 <fullyQualifiedTypeName name="utilities.internal.CustomPrintBuilder"/>
 <fullyQualifiedTypeName name="java.lang.reflect.Field"/>
@@ -60,4 +59,5 @@
 <fullyQualifiedTypeName name="javax.persistence.Temporal"/>
 <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.Temporal"/>
 <fullyQualifiedTypeName name="java.util.Collection"/>
+<fullyQualifiedTypeName name="javax.persistence.CascadeType"/>
 </qualifiedTypeNameHistroy>

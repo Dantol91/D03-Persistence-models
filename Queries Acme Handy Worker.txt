@@ -1,0 +1,69 @@
+Nivel C:
+
+- Q1 The average, the minimum, the maximum, and the standard deviation of the number of fix-up tasks per user.
+
+Query: select avg(u.fixuptask.size), min(u.fixuptask.size) , max(u.fixuptask.size), sqrt(sum(u.fixuptask.size*u.fixuptask.size)/count(u.fixuptask.size)-(avg(u.fixuptask.size)*avg(u.fixuptask.size))) from User u;
+
+Descripción: Al utilizar esta consulta, podemos obtener el promedio, el mínimo, el máximo y la desviación estándar del número de fix-up tasks por user.
+
+- Q2 The average, the minimum, the maximum, and the standard deviation of the number of applications per fix-up task.
+
+Query: select avg(f.applications.size), min(f.applications.size) , max(f.applications.size), sqrt(sum(f.applications.size*f.applications.size)/count(f.applications.size)-(avg(f.applications.size)*avg(f.applications.size))) from FixUpTask f;
+
+Descripción: Al utilizar esta consulta, podemos obtener el promedio, el mínimo, el máximo y la desviación estándar del número de applications por fix-up tasks.
+
+- Q3 The average, the minimum, the maximum, and the standard deviation of the maximum price of the fix-up tasks.
+
+Query: select avg(f.maxPrice.size), min(f.maxPrice.size) , max(f.maxPrice.size), sqrt(sum(.size*f.maxPrice.size)/count(f.maxPrice.size)-(avg(f.maxPrice.size)*avg(f.maxPrice.size))) from FixUpTask f;
+f.applications
+
+- Q4 The average, the minimum, the maximum, and the standard deviation of the price offered in the applications.
+
+Query: select avg(a.offeredPrice.size), min(a.offeredPrice.size) , max(a.offeredPrice.size), sqrt(sum(.size*a.offeredPrice.size)/count(a.offeredPrice.size)-(avg(a.offeredPrice.size)*avg(a.offeredPrice.size))) from Application a;
+
+
+- Q5 The ratio of pending applications.
+
+Query: select sum(case when a.status = 'PENDING' then 1.0 else 0.0 end)/count(a) from Application a;
+
+- Q6 The ratio of accepted applications.
+
+Query: select sum(case when a.status='ACCEPTED' then 1.0 else 0.0 end)/count(a) from Application a;
+
+- Q7 The ratio of rejected applications.
+
+Query: select sum(case when a.status='REJECTED' then 1.0 else 0.0 end)/count(a) from Application a;
+
+- Q8 The ratio of pending applications that cannot change its status because their time period’s elapsed.
+
+- Q9 The listing of customers who have published at least 10% more fix-up tasks than the average, ordered by number of applications.
+
+- Q10 The listing of handy workers who have got accepted at least 10% more ap-plications than the average, ordered by number of applications.
+
+
+---------------------------------------------
+
+Nivel B:
+
+- Q1 The minimum, the maximum, the average, and the standard deviation of the number of complaints per fix-up task.
+
+Query: select min(f.complaint.size), max(f.complaint.size), avg(f.complaint.size), sqrt(sum(f.complaint.size*f.complaint.size)/count(f.complaint.size)-(avg(f.complaint.size)*avg(f.complaint.size))) from FixUpTask f;
+
+- Q2 The minimum, the maximum, the average, and the standard deviation of the number of notes per referee report.
+
+Query: select min(r.note.size), max(r.note.size), avg(r.note.size), sqrt(sum(r.note.size*r.note.size)/count(r.note.size)-(avg(r.note.size)*avg(r.note.size))) from Referee r;
+
+- Q3 The ratio of fix-up tasks with a complaint.
+
+Query: select sum(case when r.suspicious = 1 then 1.0 else 0.0 end)/count(r)  from FixUpTask f;
+
+- Q4 The top-three customers in terms of complaints.
+
+- Q5 The top-three handy workers in terms of complaints.
+
+---------------------------------------------
+
+Nivel A:
+
+No hay consultas
+
