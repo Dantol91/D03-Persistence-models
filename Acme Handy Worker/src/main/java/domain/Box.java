@@ -7,6 +7,9 @@ import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotBlank;
@@ -37,6 +40,7 @@ public class Box extends DomainEntity {
 		this.name = name;
 	}
 
+	@NotNull
 	public boolean getSystemBox() {
 		return this.systemBox;
 	}
@@ -49,12 +53,12 @@ public class Box extends DomainEntity {
 	// Relationships
 
 	private Collection<Message>	messages;
+	private Box					parentBox;
+	private Actor				actor;
 
-
-	//private Collection<Box>		childBoxes;
-	//private Box					parentBox;
 
 	@NotNull
+	@Valid
 	@ManyToMany
 	public Collection<Message> getMessages() {
 		return this.messages;
@@ -64,24 +68,24 @@ public class Box extends DomainEntity {
 		this.messages = messages;
 	}
 
-	/*
-	 * //@ManyToOne(optional = false)
-	 * public Collection<Box> getChildBoxes() {
-	 * return this.childBoxes;
-	 * }
-	 * 
-	 * public void setChildBoxes(final Collection<Box> childBoxes) {
-	 * this.childBoxes = childBoxes;
-	 * }
-	 * 
-	 * //OneToMany
-	 * public Box getParentBox() {
-	 * return this.parentBox;
-	 * }
-	 * 
-	 * public void setParentBox(final Box parentBox) {
-	 * this.parentBox = parentBox;
-	 * }
-	 */
+	@OneToOne(optional = true)
+	public Box getParentBox() {
+		return this.parentBox;
+	}
+
+	public void setParentBox(final Box parentBox) {
+		this.parentBox = parentBox;
+	}
+
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	public Actor getActor() {
+		return this.actor;
+	}
+
+	public void setActor(final Actor actor) {
+		this.actor = actor;
+	}
 
 }

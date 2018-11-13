@@ -5,14 +5,15 @@ import java.util.Collection;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
-import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.validator.constraints.URL;
 
 import security.UserAccount;
@@ -115,12 +116,11 @@ public class Actor extends DomainEntity {
 	private UserAccount					userAccount;
 	private Collection<Box>				boxes;
 	private Collection<SocialProfile>	socialProfiles;
-	private Collection<Message>			messages;
 
 
 	@NotNull
 	@Valid
-	//@OneToMany(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.ALL, optional = false)
 	public UserAccount getUserAccount() {
 		return this.userAccount;
 	}
@@ -129,8 +129,9 @@ public class Actor extends DomainEntity {
 		this.userAccount = userAccount;
 	}
 
-	@NotEmpty
-	@OneToMany
+	@NotNull
+	@Valid
+	@OneToMany(mappedBy = "actor")
 	public Collection<Box> getBoxes() {
 		return this.boxes;
 	}
@@ -139,24 +140,14 @@ public class Actor extends DomainEntity {
 		this.boxes = boxes;
 	}
 
-	@NotNull
-	@OneToMany
+	@Valid
+	@OneToMany(mappedBy = "actor")
 	public Collection<SocialProfile> getSocialProfiles() {
 		return this.socialProfiles;
 	}
 
 	public void setSocialProfiles(final Collection<SocialProfile> socialProfiles) {
 		this.socialProfiles = socialProfiles;
-	}
-
-	@NotNull
-	@OneToMany
-	public Collection<Message> getMessages() {
-		return this.messages;
-	}
-
-	public void setMessages(final Collection<Message> messages) {
-		this.messages = messages;
 	}
 
 }

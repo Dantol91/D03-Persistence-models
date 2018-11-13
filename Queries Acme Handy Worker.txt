@@ -21,7 +21,6 @@ f.applications
 
 Query: select avg(a.offeredPrice.size), min(a.offeredPrice.size) , max(a.offeredPrice.size), sqrt(sum(.size*a.offeredPrice.size)/count(a.offeredPrice.size)-(avg(a.offeredPrice.size)*avg(a.offeredPrice.size))) from Application a;
 
-
 - Q5 The ratio of pending applications.
 
 Query: select sum(case when a.status = 'PENDING' then 1.0 else 0.0 end)/count(a) from Application a;
@@ -36,18 +35,32 @@ Query: select sum(case when a.status='REJECTED' then 1.0 else 0.0 end)/count(a) 
 
 - Q8 The ratio of pending applications that cannot change its status because their time period’s elapsed.
 
+Query: select (select count(a) from application a join a.fixuptask f where f.periodstart <= current_date) / (select count(b) from application b))*100;
+
 - Q9 The listing of customers who have published at least 10% more fix-up tasks than the average, ordered by number of applications.
+
+Query: select c from customer c where (select count(f) from c.fixuptask f where f.id_fixuptask = c.id_fixuptask and f.status = 'published') >= select ((
+select count(a) from customer cu join cu.application a where a.status = 'published') / (select count(cust) from customer cus))*1.1;
+
+select c from Customer c join c.task t ordered by t.applications.size;
 
 - Q10 The listing of handy workers who have got accepted at least 10% more ap-plications than the average, ordered by number of applications.
 
+Query: select w from handyworker w where (select count(p) from w.application p where p.id_handyworker = w.id_handyworker and p.status = 'accepted') >= select ((
+select count(a) from handyworker y join y.application a where a.status = 'accepted') / (select count(h) from handyworker h))*1.1;
 
----------------------------------------------
+select h from HandyWorker h join h.applications a join a.task t where a.status='ACCEPTED' order by t.complaints.size
+
+----------------------------------------------
 
 Nivel B:
 
 - Q1 The minimum, the maximum, the average, and the standard deviation of the number of complaints per fix-up task.
 
 Query: select min(f.complaint.size), max(f.complaint.size), avg(f.complaint.size), sqrt(sum(f.complaint.size*f.complaint.size)/count(f.complaint.size)-(avg(f.complaint.size)*avg(f.complaint.size))) from FixUpTask f;
+
+Query: select avg((count (fx1 complaints), sqrt(sum(fx2 complaints *fx2 complaints)/ count (fx2(complaints)*(avg fx2.complaints)*avg(fx2 complaints))) from fixuptask fx1, 
+fixuptask fx2);
 
 - Q2 The minimum, the maximum, the average, and the standard deviation of the number of notes per referee report.
 
@@ -61,9 +74,11 @@ Query: select sum(case when r.suspicious = 1 then 1.0 else 0.0 end)/count(r)  fr
 
 - Q5 The top-three handy workers in terms of complaints.
 
----------------------------------------------
+Query: select a handyworker from application a join a.fixuptask fx wher e(fx.complaints > 0) having (count (a handyworker) = 3)
+order by fx complaints desc;
 
-Nivel A:
+usar top y limit functions.
 
-No hay consultas
+select top y order by desc limit 0.3.
 
+select c from Customer c join c.tasks t order by t.complaints.size
