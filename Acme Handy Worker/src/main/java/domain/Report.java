@@ -8,6 +8,8 @@ import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 
@@ -34,18 +36,19 @@ public class Report extends DomainEntity {
 	private boolean	finalMode;
 
 
-	@NotNull
 	@Past
+	@NotNull
+	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	public Date getMoment() {
 		return this.moment;
 	}
 
-	@NotBlank
 	public void setMoment(final Date moment) {
 		this.moment = moment;
 	}
 
+	@NotBlank
 	public String getDescription() {
 		return this.description;
 	}

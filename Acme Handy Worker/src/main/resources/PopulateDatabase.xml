@@ -433,7 +433,7 @@
 	<!-- Messages -->
 
 	<bean id="message1" class="domain.Message">
-		<property name="moment" value="15/10/2018" />
+		<property name="moment" value="15/10/2015" />
 		<property name="subject" value="subject1" />
 		<property name="body" value="body1" />
 		<property name="priority" value="HIGH" />
@@ -443,7 +443,7 @@
 	</bean>
 	
 	<bean id="message2" class="domain.Message">
-		<property name="moment" value="18/12/2018" />
+		<property name="moment" value="18/12/2016" />
 		<property name="subject" value="subject2" />
 		<property name="body" value="body2" />
 		<property name="priority" value="NEUTRAL" />

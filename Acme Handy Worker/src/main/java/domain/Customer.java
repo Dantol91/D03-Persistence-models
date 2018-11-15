@@ -25,16 +25,16 @@ public class Customer extends Actor {
 
 	// Atributes
 
-	private Double	score;
+	private double	score;
 
 
 	@Digits(integer = 3, fraction = 2)
 	@Range(min = -1, max = 1)
-	public Double getScore() {
+	public double getScore() {
 		return this.score;
 	}
 
-	public void setScore(final Double score) {
+	public void setScore(final double score) {
 		this.score = score;
 	}
 

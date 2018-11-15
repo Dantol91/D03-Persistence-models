@@ -8,6 +8,7 @@ import javax.persistence.AccessType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -52,9 +53,10 @@ public class Box extends DomainEntity {
 
 	// Relationships
 
-	private Collection<Message>	messages;
-	private Box					parentBox;
-	private Actor				actor;
+	private Collection<Message>		messages;
+	private Box						parentBox;
+	private Collection<Category>	childBoxes;
+	private Actor					actor;
 
 
 	@NotNull
@@ -75,6 +77,15 @@ public class Box extends DomainEntity {
 
 	public void setParentBox(final Box parentBox) {
 		this.parentBox = parentBox;
+	}
+
+	@OneToMany
+	public Collection<Category> getChildBoxes() {
+		return this.childBoxes;
+	}
+
+	public void setChildBoxes(final Collection<Category> childBoxes) {
+		this.childBoxes = childBoxes;
 	}
 
 	@NotNull

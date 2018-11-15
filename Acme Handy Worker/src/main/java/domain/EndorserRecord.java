@@ -38,7 +38,6 @@ public class EndorserRecord extends DomainEntity {
 		this.fullName = fullName;
 	}
 
-	@NotBlank
 	@Email
 	public String getEmail() {
 		return this.email;
@@ -57,7 +56,6 @@ public class EndorserRecord extends DomainEntity {
 		this.phone = phone;
 	}
 
-	@NotBlank
 	@URL
 	public String getLinkedInProfile() {
 		return this.linkedInProfile;
