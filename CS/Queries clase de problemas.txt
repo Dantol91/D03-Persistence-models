@@ -1,0 +1,24 @@
+Q51:
+
+
+
+Q52:
+
+select a handyworker from application a join a.fixuptask fx wher e(fx.complaints > 0) having (count (a handyworker) = 3)
+order by fx complaints desc;
+
+usar top y limit functions.
+
+select top y order by desc limit 0.3.
+
+
+Q61:
+
+BIDIRECCIONAL DE ENDORSE A ENDROSEMENT 
+
+select e.endorse from endrosement e where 'handyworker' member of e.endorse.userAccount.authorities group by e.enderose having count(e) = 
+(select max(h.receivedEndorsements.size) from HandyWorker h);
+
+Q62:
+
+select c from Customer c where c.receivedEndorsements.size > (select avg(c.receivedEndorsements.size)*1.1 from Customer c);
