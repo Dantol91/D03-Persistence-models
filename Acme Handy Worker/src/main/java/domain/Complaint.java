@@ -5,6 +5,7 @@ import java.util.Date;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
@@ -36,7 +37,9 @@ public class Complaint extends DomainEntity {
 	private String	attachmentLink;
 
 
-	@Pattern(regexp = "^\\d[0-1]\\d[0-3]\\d[-]\\w{6}+$")
+	@NotBlank
+	@Column(unique = true)
+	@Pattern(regexp = "(^\\d\\d[0-1]\\d[0-3]\\d[-]\\w{4})$")
 	public String getTicker() {
 		return this.ticker;
 	}

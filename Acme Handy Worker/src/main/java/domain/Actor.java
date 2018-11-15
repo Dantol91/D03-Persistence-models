@@ -129,7 +129,6 @@ public class Actor extends DomainEntity {
 		this.userAccount = userAccount;
 	}
 
-	@NotNull
 	@Valid
 	@OneToMany(mappedBy = "actor")
 	public Collection<Box> getBoxes() {

@@ -10,7 +10,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.Digits;
-import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.Range;
@@ -60,7 +59,7 @@ public class HandyWorker extends Actor {
 	private Collection<Application>	applications;
 
 
-	@NotNull
+	@Valid
 	@OneToMany
 	public Collection<Tutorial> getTutorials() {
 		return this.tutorials;
@@ -80,7 +79,6 @@ public class HandyWorker extends Actor {
 		this.curriculum = curriculum;
 	}
 
-	@NotNull
 	@Valid
 	@OneToOne(optional = false)
 	public Finder getFinder() {
@@ -91,14 +89,12 @@ public class HandyWorker extends Actor {
 		this.finder = finder;
 	}
 
-	/*
-	 * //@OneToMany(mappedBy = "HandyWorker")
-	 * public Collection<Application> getApplications() {
-	 * return this.applications;
-	 * }
-	 * 
-	 * public void setApplications(final Collection<Application> applications) {
-	 * this.applications = applications;
-	 * }
-	 */
+	@OneToMany(mappedBy = "handyWorker")
+	public Collection<Application> getApplications() {
+		return this.applications;
+	}
+
+	public void setApplications(final Collection<Application> applications) {
+		this.applications = applications;
+	}
 }

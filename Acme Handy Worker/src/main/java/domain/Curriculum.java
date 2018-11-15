@@ -5,12 +5,15 @@ import java.util.Collection;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
+
+import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 @Access(AccessType.PROPERTY)
@@ -28,7 +31,9 @@ public class Curriculum extends DomainEntity {
 	private String	ticker;
 
 
-	@Pattern(regexp = "^\\d[0-1]\\d[0-3]\\d[-]\\w{6}+$")
+	@NotBlank
+	@Column(unique = true)
+	@Pattern(regexp = "(^\\d\\d[0-1]\\d[0-3]\\d[-]\\w{4})$")
 	public String getTicker() {
 		return this.ticker;
 	}
@@ -48,7 +53,6 @@ public class Curriculum extends DomainEntity {
 	private Collection<EndorserRecord>		endorserRecords;
 
 
-	@NotNull
 	@Valid
 	@OneToOne(optional = false)
 	public HandyWorker getHandyWorker() {

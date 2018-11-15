@@ -47,7 +47,6 @@ public class Category extends DomainEntity {
 	private Collection<Category>	childCategories;
 
 
-	@NotNull
 	@ManyToMany
 	public Collection<FixUpTask> getFixUpTasks() {
 		return this.fixUpTasks;

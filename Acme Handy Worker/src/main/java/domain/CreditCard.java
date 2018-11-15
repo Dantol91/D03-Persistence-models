@@ -4,6 +4,7 @@ package domain;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
+import javax.validation.constraints.Digits;
 
 import org.hibernate.validator.constraints.CreditCardNumber;
 import org.hibernate.validator.constraints.NotBlank;
@@ -18,16 +19,10 @@ public class CreditCard extends DomainEntity {
 	private String	holderName;
 	private String	brandName;
 	private String	number;
-	private int		expirationMonth;
-	private int		expirationYear;
+	private String	expirationMonth;
+	private String	expirationYear;
 	private int		CVV;
 
-
-	// Constructors -----------------------------------------------------------
-
-	public CreditCard() {
-		super();
-	}
 
 	@NotBlank
 	public String getHolderName() {
@@ -47,8 +42,8 @@ public class CreditCard extends DomainEntity {
 		this.brandName = brandName;
 	}
 
-	@CreditCardNumber
 	@NotBlank
+	@CreditCardNumber
 	public String getNumber() {
 		return this.number;
 	}
@@ -59,20 +54,21 @@ public class CreditCard extends DomainEntity {
 
 	@NotBlank
 	@Range(min = 1, max = 12)
-	public int getExpirationMonth() {
+	public String getExpirationMonth() {
 		return this.expirationMonth;
 	}
 
-	public void setExpirationMonth(final int expirationMonth) {
+	public void setExpirationMonth(final String expirationMonth) {
 		this.expirationMonth = expirationMonth;
 	}
 
-	@Range(min = 0, max = 99)
-	public int getExpirationYear() {
+	@NotBlank
+	@Digits(integer = 4, fraction = 0)
+	public String getExpirationYear() {
 		return this.expirationYear;
 	}
 
-	public void setExpirationYear(final int expirationYear) {
+	public void setExpirationYear(final String expirationYear) {
 		this.expirationYear = expirationYear;
 	}
 
@@ -81,24 +77,8 @@ public class CreditCard extends DomainEntity {
 		return this.CVV;
 	}
 
-	public void setCVV(final int CVV) {
-		this.CVV = CVV;
+	public void setCVV(final int cVV) {
+		this.CVV = cVV;
 	}
-
-	// Relationships
-
-	/*
-	 * private Collection<Application> applications;
-	 * 
-	 * 
-	 * @NotNull
-	 * public Collection<Application> getApplications() {
-	 * return this.applications;
-	 * }
-	 * 
-	 * public void setApplications(final Collection<Application> applications) {
-	 * this.applications = applications;
-	 * }
-	 */
 
 }

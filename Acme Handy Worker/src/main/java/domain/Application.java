@@ -99,29 +99,24 @@ public class Application extends DomainEntity {
 		this.creditcard = creditcard;
 	}
 
-	/*
-	 * //@ManyToOne(optional = false)
-	 * public HandyWorker getHandyWorker() {
-	 * return this.handyWorker;
-	 * }
-	 * 
-	 * public void setHandyWorker(final HandyWorker handyWorker) {
-	 * this.handyWorker = handyWorker;
-	 * }
-	 */
+	@ManyToOne(optional = false)
+	public HandyWorker getHandyWorker() {
+		return this.handyWorker;
+	}
 
-	/*
-	 * @NotNull
-	 * 
-	 * @Valid
-	 * //@ManyToOne(optional = false)
-	 * public FixUpTask getFixUpTask() {
-	 * return this.fixUpTask;
-	 * }
-	 * 
-	 * public void setFixUpTask(final FixUpTask fixUpTask) {
-	 * this.fixUpTask = fixUpTask;
-	 * }
-	 */
+	public void setHandyWorker(final HandyWorker handyWorker) {
+		this.handyWorker = handyWorker;
+	}
+
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	public FixUpTask getFixUpTask() {
+		return this.fixUpTask;
+	}
+
+	public void setFixUpTask(final FixUpTask fixUpTask) {
+		this.fixUpTask = fixUpTask;
+	}
 
 }

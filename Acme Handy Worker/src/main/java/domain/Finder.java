@@ -8,8 +8,9 @@ import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -59,7 +60,8 @@ public class Finder extends DomainEntity {
 		this.minPrice = minPrice;
 	}
 
-	@NotNull
+	@Valid
+	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	public Date getStartDate() {
 		return this.startDate;
@@ -69,6 +71,8 @@ public class Finder extends DomainEntity {
 		this.startDate = startDate;
 	}
 
+	@Valid
+	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	public Date getEndDate() {
 		return this.endDate;
@@ -84,7 +88,6 @@ public class Finder extends DomainEntity {
 	private Collection<FixUpTask>	fixUpTasks;
 
 
-	@NotNull
 	@OneToMany
 	public Collection<FixUpTask> getFixUpTasks() {
 		return this.fixUpTasks;

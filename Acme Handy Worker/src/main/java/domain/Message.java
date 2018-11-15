@@ -11,8 +11,6 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
-import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -37,7 +35,7 @@ public class Message extends DomainEntity {
 	private String	tags;
 
 
-	@Past
+	//@Past
 	@NotNull
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
@@ -67,7 +65,7 @@ public class Message extends DomainEntity {
 		this.body = body;
 	}
 
-	@Pattern(regexp = "(^HIGH|NEUTRAL|LOW$)")
+	//@Pattern(regexp = "(^HIGH|NEUTRAL|LOW$)")
 	public String getPriority() {
 		return this.priority;
 	}
