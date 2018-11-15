@@ -688,6 +688,38 @@
 		</property>
 	</bean>
 	
+	<!-- Applications -->
+	
+	<bean id="application1" class="domain.Application">
+		<property name="registerMoment" value="23/07/2018" />
+		<property name="status" value="ACCEPTED" />
+		<property name="offeredPrice" value="250.00" />
+		<property name="comment" value="Comment ap1" />
+		<property name="handyWorker" ref="handyWorker1" />
+		<property name="reasonDenied" ref="Too expensive" />
+		<property name="fixUpTask" ref="fixUpTask1" />
+	</bean>
+	
+	<bean id="application2" class="domain.Application">
+		<property name="registerMoment" value="12/10/2018" />
+		<property name="status" value="REJECTED" />
+		<property name="offeredPrice" value="120.00" />
+		<property name="comment" value="Comment ap2" />
+		<property name="handyWorker" ref="handyWorker1" />
+		<property name="fixUpTask" ref="fixUpTask2" />
+	</bean>
+	
+	<bean id="application3" class="domain.Application">
+		<property name="registerMoment" value="10/04/2018" />
+		<property name="status" value="PENDING" />
+		<property name="offeredPrice" value="180.00" />
+		<property name="comment" value="Comment ap2" />
+		<property name="creditCard" ref="creditCard4" />
+		<property name="handyWorker" ref="handyWorker2" />
+		<property name="reasonDenied" ref="reason2" />
+		<property name="fixUpTask" ref="fixUpTask2" />
+	</bean>
+	
 	<!-- Finder -->
 	
 	<bean id="finder1" class="domain.Finder">
@@ -813,34 +845,6 @@
 		<property name="score" value="0.5"/> 
 	</bean>
 	
-		<!-- Applications -->
-	
-	<bean id="application1" class="domain.Application">
-		<property name="registerMoment" value="23/07/2014" />
-		<property name="status" value="ACCEPTED" />
-		<property name="offeredPrice" value="250.00" />
-		<property name="comment" value="Comment ap1" />
-		<property name="handyWorker" ref="handyWorker1" />
-		<property name="fixUpTask" ref="fixUpTask1" />
-	</bean>
-	
-	<bean id="application2" class="domain.Application">
-		<property name="registerMoment" value="12/10/2015" />
-		<property name="status" value="REJECTED" />
-		<property name="offeredPrice" value="120.00" />
-		<property name="comment" value="Comment ap2" />
-		<property name="handyWorker" ref="handyWorker1" />
-		<property name="fixUpTask" ref="fixUpTask2" />
-	</bean>
-	
-	<bean id="application3" class="domain.Application">
-		<property name="registerMoment" value="10/04/2016" />
-		<property name="status" value="PENDING" />
-		<property name="offeredPrice" value="180.00" />
-		<property name="comment" value="Comment ap2" />
-		<property name="handyWorker" ref="handyWorker2" />
-		<property name="fixUpTask" ref="fixUpTask2" />
-	</bean>
 	
 	<!-- Curriculums -->
 
